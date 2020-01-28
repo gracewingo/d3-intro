@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import BarChart from './BarChart.js';
+import ScatterPlot from "./ScatterPlot.js";
+import NumberOfVisitors from "./NumberOfVisitors.js"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  
+  render(){
+    return(
+      <div className="App">
+        <div>
+          <h4 className="dashboard-title">OBS Charts</h4>
+          <BarChart data={this.props.data} />
+          <ScatterPlot data={this.props.data}/>
+          <NumberOfVisitors data={this.props.data} />
+        </div>
+      </div>
+    )
+  }
 }
 
 export default App;
+
+
+/*
+ 
+updateData(){
+    d3.csv(data).then(function(data){
+      for(let i = 0; i < data.length; i++){
+        console.log("Days active is " + data[i]["Days Active"])
+        setState
+      } 
+    }).catch(function(err){
+      throw err;
+    })
+  }
+
+   data ={this.props.data}
+    active = {this.props.active}
+*/
