@@ -26,7 +26,7 @@ export default class BarChart extends Component {
     this.drawChart(activeArr,accountArr);
   }
 
-  drawChart = (active,accountId) => {
+  drawChart = (active, accountId) => {
     const data = active;
     const width = 550;
     const height = 350;

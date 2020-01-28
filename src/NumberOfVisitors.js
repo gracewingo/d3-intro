@@ -11,12 +11,11 @@ export default class NumberOfVisitors extends Component {
       let data = this.props.data.slice(50);
       this.createNumberOfVisitors(data);
     }
-     
   }
 
   createNumberOfVisitors = (data) => {
     const width = 650;
-    const height = 350;
+    const height = 850;
     const margin = {
       top: 15,
       right: 25,
@@ -39,6 +38,7 @@ export default class NumberOfVisitors extends Component {
                   .append("g")
                   .attr("color", "white")
                   .attr("transform", "translate(" + 70 + "," + 50 + ")")
+                  .style("margin", 30);
 
     const x = d3.scaleLinear()
             .domain([0, d3.max((d) => d["Visitors"])])  
@@ -47,7 +47,7 @@ export default class NumberOfVisitors extends Component {
     const y = d3.scaleBand()
               .range([height,0])
               .padding(.01)
-              .domain(data.map(function(d){
+              .domain(data.map((d) => {
                 return d["Account ID"];
               }))    
     
@@ -66,7 +66,7 @@ export default class NumberOfVisitors extends Component {
             .attr("class", "visitor-bar")
             .attr("width", (d) => d["Visitors"] * 20)  
             .attr("y", (d) => y(d["Account ID"]))
-            .attr("height", 8);
+            .attr("height", 25);
   }
 
   render(){
